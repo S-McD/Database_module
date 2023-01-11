@@ -18,5 +18,6 @@ artist_repository.all.each do |artist|
 end
 
 album_repository.all.each do |album|
-  p "#{album.id}, #{album.title}"
+  p album
+  # p "#{album.id}, #{album.title}, "
 end
