@@ -197,7 +197,7 @@ new_album.artist_id = '1'
 repo.create(album) # => nil
 
 albums = repo.all
-albums.last.title # => 'Hashes'
+albums.last.title # => 'Trompe le Monde'
 
 # 4
 # Deletes an album
@@ -212,10 +212,11 @@ albums.first.title # => 'Surfer Rosa'
 # Updates an album
 
 repo = AlbumRepository.new
-album = repo.find(1)
+album = repo.find(2)
+album.release_year = '2000'
 repo.update(album)
 albums = repo.all
-
+albums.last.release_year # => '2000'
 ```
 
 Encode this example as a test.
