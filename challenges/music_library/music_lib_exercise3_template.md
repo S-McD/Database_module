@@ -141,11 +141,11 @@ class AlbumRepository
 
   # Updates an album record
   # Takes an album object as an arguement (with the updated fields)
-  def update(id)
+  def update(album)
   # Executes the SQL query:
   # UPDATE albums SET release_year = $1 WHERE id = $2
 
-  # Returns the updated array of album objects.
+  # Doesn't need to return anything (only updates the record)
   end
 end
 
@@ -188,21 +188,32 @@ album.artist_id # => '1'
 # Creates a new album
 
 repo = AlbumRepository.new
-new_album = repo.create(album)
+
+new_album = Album.new
+new_album.title = 'Trompe le Monde'
+new_album.release_year = '1991'
+new_album.artist_id = '1'
+
+repo.create(album) # => nil
+
 albums = repo.all
+albums.last.title # => 'Hashes'
 
 # 4
 # Deletes an album
 
 repo = AlbumRepository.new
-repo.delete(1)
+repo.delete(1) # => nil
+
 albums = repo.all
+albums.first.title # => 'Surfer Rosa'
 
 # 5 
 # Updates an album
 
 repo = AlbumRepository.new
-updated_album = repo.update(album)
+album = repo.find(1)
+repo.update(album)
 albums = repo.all
 
 ```
