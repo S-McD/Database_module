@@ -36,4 +36,8 @@ class AlbumRepository
 
         return album
     end
+    def create(album)
+        sql = 'INSERT INTO albums (title, release_year, artist_id) VALUES ($1, $2, $3);'
+        
+    end
 end

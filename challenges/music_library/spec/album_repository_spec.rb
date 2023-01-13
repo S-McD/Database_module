@@ -36,4 +36,12 @@ RSpec.describe AlbumRepository do
         expect(album.release_year).to eq '2001'
         expect(album.artist_id).to eq '1'
     end
+    it "creates a new album" do
+        repository = AlbumRepository.new
+        album = Album.new
+        new_album = repository.create(album)
+        expect(new_album.title).to eq 'Trompe le Monde'
+        expect(new_album.release_year).to eq = '1991'
+        expect(new_album.artist_id).to eq '1'
+    end
 end
