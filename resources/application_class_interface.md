@@ -1,8 +1,7 @@
-require_relative 'lib/database_connection'
-require_relative 'lib/artist_repository'
-require_relative 'lib/artist'
-require_relative 'lib/album_repository'
-require_relative 'lib/album'
+# file: app.rb
+
+require_relative './lib/album_repository'
+require_relative './lib/artist_repository'
 
 class Application
 
@@ -20,12 +19,6 @@ class Application
   end
 
   def run
-
-    @io.puts "Welcome to the music library manager!\n "
-    @io.puts"What would you like to do?\n1 - List all albums\n2 - List all artists"
-    @io.puts"Enter your choice: "
-    
-
     # "Runs" the terminal application
     # so it can ask the user to enter some input
     # and then decide to run the appropriate action
@@ -49,24 +42,3 @@ if __FILE__ == $0
   )
   app.run
 end
-# We need to give the database name to the method `connect`.
-# DatabaseConnection.connect('music_library')
-
-# Perform a SQL query on the database and get the result set.
-# artist_repository = ArtistRepository.new
-# album_repository = AlbumRepository.new
-
-# Print out each record from the result set
-
-# artist_repository.all.each do |artist|
-#   p artist
-# end
-
-# album_repository.all.each do |album|
-#   p album
-#   # p "#{album.id}, #{album.title}, "
-# end
-
-# album = album_repository.find(3)
-# p album
-# "#{album.title}, #{album.release_year}"
